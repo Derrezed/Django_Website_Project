@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Post
 
 
 test_data = [
@@ -13,7 +13,7 @@ test_data = [
 
 def homepage(request):
     context = {
-        'posts': test_data
+        'posts': Post.objects.all()
     }
 
     return render(request, 'homepage/home.html', context)
